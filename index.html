@@ -1,0 +1,70 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloon Pop</title>
+    <link rel="stylesheet" type="text/css" href="desktop.css">
+    <link rel="stylesheet" type="text/css" media="(max-width: 768px)" href="mobile.css">
+    <link rel="shortcut icon" type="image/ico" href="medias/favicon.ico">
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css2?family=Courgette&family=Cookie&display=swap">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+</head>
+
+<body onload="viewscores();">
+    <section>
+        <div class="logo">
+            <img src="medias/logo.png" type="image/png" alt="Balloon Pop logo">
+        </div>
+    </section>
+    <section id="player">
+        <form onsubmit="setplayer(event);" class="container flex space-between" autocomplete="off">
+            <div>
+                <label for="name"><i class="far fa-user-circle"></i><span> Player Name:</span></label>
+                <input type="text" id="name" name="playername" required>
+            </div>
+            <button type="submit">Play!</button>
+        </form>
+    </section>
+    <section id="game" class="hidden container">
+        <div class="container stats flex space-between">
+            <div><i class="far fa-user-circle"></i><span> </span><span id="currentplayer"></span></div>
+            <div>
+                <span>Highscore: </span>
+                <span id="highpop"></span>
+            </div>
+
+        </div>
+        <div class="flex space-evenly" id="gameplayer">
+            <button onclick="changeplayer();">Change Player</button>
+            <button id="startbtn" onclick="start();">Start Game</button>
+        </div>
+        <div class="hidden" id="ongoinggame">
+            <div>
+                <span>Ballons Popped: </span>
+                <span id="popcount">0</span>
+            </div>
+            <div>
+                <span>Time Remaining: </span>
+                <span id="countdown">0</span>
+            </div>
+            <div class="flex flex-end">
+                <div class="pump">
+                    <div class="piston"></div>
+                    <div class="box" onclick="inflate();"><span id="clickcount">0</span></div>
+                </div>
+                <div style="background-color: red;" id="balloon"></div>
+            </div>
+        </div>
+
+    </section>
+    <section id="scoreboard" class="container">
+        <h1>Scoreboard</h1>
+        <div id="players"></div>
+    </section>
+    <script src="app.js"></script>
+</body>
+
+</html>
